@@ -1,0 +1,53 @@
+[theme]
+theme = "native"
+[theme.overrides]
+idle_bg = "#000000"
+idle_fg = "#00ff00"
+
+good_fg = "#00ff00"
+warning_fg = "#fffff00"
+critical_fg = "#ff0000"
+
+
+[icons]
+icons = "awesome6"
+
+[[block]]
+block = "disk_space"
+path = "~/"
+info_type = "available"
+alert_unit = "GB"
+interval = 20
+warning = 20.0
+alert = 10.0
+format = "$icon home: $available.eng(w:2) "
+format_alt = "$icon $free / $total"
+
+[[block]]
+block = "memory"
+# display_type = "memory"
+format = "$icon $mem_total_used_percents.eng(w:2) "
+format_alt = "$icon $swap_used_percents.eng(w:2) "
+
+[[block]]
+block = "cpu"
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+
+[[block]]
+block = "load"
+interval = 1
+format = " $icon 1min avg: $1m.eng(w:4) "
+
+[[block]]
+block = "net"
+format = " $icon {$signal_strength $ssid $frequency | Wired connection} via $device "
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+
+[[block]]
+block = "time"
+format = " $icon $timestamp.datetime(f:'%D %H:%M') "

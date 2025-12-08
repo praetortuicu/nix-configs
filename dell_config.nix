@@ -19,12 +19,11 @@
 
   # boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_6_17;
-  boot.initrd.extraFirmwarePaths = [ "iwlwifi-ma-b0-gf-a0-89.ucode.zst" ];
+  #boot.initrd.extraFirmwarePaths = [ "iwlwifi-ma-b0-gf-a0-89.ucode.zst" ];
   # boot.blacklistedKernelModules = [ "iwlwifi" ];
   hardware.bluetooth.enable = false;
 
   networking.hostName = "nixla"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -110,6 +109,8 @@
   # Enable the OpenSSH daemon.
   services.printing.enable = false;
   services.openssh.enable = false;
+
+  # Enable mullvad-vpn service
   services.mullvad-vpn.enable = true;
 
   # Open ports in the firewall.

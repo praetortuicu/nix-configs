@@ -5,7 +5,6 @@
     #./vim.nix
     ./neovim/import.nix
     ./packages.nix
-	./languages.nix
     ./i3.nix
     ./git.nix
     ./mozilla.nix

@@ -10,6 +10,7 @@ in
     config = {
       startup = [
         {
+		  # yes I have a shodan background image, sue me
           command = "feh --bg-scale /home/tuicuimens/things/pictures/shodan_highres.jpg";
           always = true;
           notification = false;

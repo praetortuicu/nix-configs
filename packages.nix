@@ -10,13 +10,15 @@
     ### Applications ###
     discord
     obsidian
-    steam
+    #steam
     signal-desktop
     tor-browser-bundle-bin
     anki
     xournalpp
     pandoc
     qgis
+	kdePackages.kdenlive
+
 
     ### Utilities ###
     brightnessctl
@@ -33,16 +35,21 @@
     jetbrains-mono
     nerd-fonts.symbols-only
     xclip
+	yubikey-manager
+	yubikey-personalization
+	#vlc
+	mpv
 
     ### Misc / CLI tools ###
     pango
     marp-cli
     gtk2
     libGL
+	gnumake
   ];
 
   # File manager
-  # programs.ranger.enable = true;
+  programs.ranger.enable = true;
 
   # Zsh configuration
   programs.zsh = {

@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  nixvimModule = import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/nixvim/archive/master.tar.gz";
+  nixvimModule = import (builtins.fetchGit {
+		url = "https://github.com/nix-community/nixvim";
+		ref = "nixos-25.05";
   });
 
 in {

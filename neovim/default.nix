@@ -1,18 +1,17 @@
 { pkgs, ...}:
 
 {
-  home.shellAliases.v = "nvim";
+	  home.shellAliases.v = "nvim";
 
-  programs.nixvim = {
-    enable        = true;
-    defaultEditor = true;
-    viAlias       = true;
-    vimAlias      = true;
+	  programs.nixvim = {
+		enable        = true;
+		defaultEditor = true;
+		viAlias       = true;
+		vimAlias      = true;
 
-    nixpkgs.useGlobalPackages = true;
+		nixpkgs.useGlobalPackages = true;
 
-    luaLoader.enable  = true;
+		luaLoader.enable  = true;
 
-  };
-
+	  };
 }

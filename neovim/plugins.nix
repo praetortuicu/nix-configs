@@ -53,6 +53,7 @@
 									"cpp"
 									"python"
 									"nix"
+									"r"
 								];
 							}
 						];
@@ -74,10 +75,15 @@
 						clangd.enable	=	true;
 						nil_ls.enable	=	true;
 						pyright.enable	=	true;
-						rust_analyzer = {
-							enable = true;
-							installRustc = true;
-							installCargo = true;
+						r_language_server	= {
+							enable	=	true;
+							package	=	null;
+							cmd	=	[	"R"	"--no-echo"	"-e"	"languageserver::run()"	];
+						};
+						rust_analyzer	=	{
+							enable	=	true;
+							installRustc	=	true;
+							installCargo	=	true;
 						};
 						ltex	=	{
 							enable	=	true;

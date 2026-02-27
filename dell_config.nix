@@ -18,19 +18,21 @@
   #'';
 
   # boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_17;
+  #boot.kernelPackages = pkgs.linuxPackages_6_17;
   #boot.initrd.extraFirmwarePaths = [ "iwlwifi-ma-b0-gf-a0-89.ucode.zst" ];
-  # boot.blacklistedKernelModules = [ "iwlwifi" ];
-  hardware.bluetooth.enable = false;
+  hardware.bluetooth.enable = true;
 
   networking.hostName = "nixla"; # Define your hostname.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
+  services.resolved.enable = true;
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
   networking.wireless.iwd.enable = true;
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -53,7 +55,8 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "";
+    options  = "ctrl:nocaps";
+    variant = "altgr-intl";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -64,8 +67,16 @@
     extraGroups = [ "networkmanager" "wheel" "seat"];
     packages = with pkgs; [];
   };
+  nix.settings = {
+    experimental-features = "nix-command flakes";
+  };
 
+  programs.steam.enable = true;
   programs.zsh.enable  = true;
+  zramSwap = {
+	enable = true;
+	memoryPercent = 50;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -80,14 +91,15 @@
     vulkan-tools
     libdrm
   ];
-
+  services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+   programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
   services.xserver = {
     displayManager.startx.enable = true;
     displayManager.lightdm.enable = true;
@@ -95,6 +107,17 @@
     enable = true;
     windowManager.i3.enable = true;
     wacom.enable = true;
+  };
+  security.pam.services = {
+  login.u2fAuth = true;
+  sudo.u2fAuth = true;
+  # This targets your specific display manager (LightDM)
+  lightdm.u2fAuth = true; 
+  };
+  
+  security.pam.u2f.settings = {
+    cue = true;           # Tells you "Please touch the device"
+    interactive = true;   # Required for the prompt to wait for you
   };
 
   security.rtkit.enable = true;
@@ -110,7 +133,7 @@
   services.printing.enable = false;
   services.openssh.enable = false;
 
-  # Enable mullvad-vpn service
+  # Enable mullvad vpn service
   services.mullvad-vpn.enable = true;
 
   # Open ports in the firewall.
@@ -118,6 +141,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = true;
+  networking.firewall.trustedInterfaces = [ "uni-heidelberg" ];
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

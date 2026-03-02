@@ -31,9 +31,10 @@
     keepassxc
     mullvad-vpn
     btop
-    font-awesome
-    jetbrains-mono
-    nerd-fonts.symbols-only
+    #font-awesome
+    #jetbrains-mono
+	nerd-fonts.jetbrains
+	nerd-fonts.symbols-only
     xclip
 	yubikey-manager
 	yubikey-personalization

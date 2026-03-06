@@ -12,7 +12,7 @@
     obsidian
     #steam
     signal-desktop
-    tor-browser-bundle-bin
+    tor-browser
     anki
     xournalpp
     pandoc
@@ -31,9 +31,9 @@
     keepassxc
     mullvad-vpn
     btop
-    #font-awesome
+   # font-awesome
     #jetbrains-mono
-	nerd-fonts.jetbrains
+	nerd-fonts.jetbrains-mono
 	nerd-fonts.symbols-only
     xclip
 	yubikey-manager
@@ -47,6 +47,7 @@
     gtk2
     libGL
 	gnumake
+	claude-code
   ];
 
   # File manager

@@ -18,7 +18,7 @@
     pandoc
     qgis
 	kdePackages.kdenlive
-
+	libreoffice
 
     ### Utilities ###
     brightnessctl

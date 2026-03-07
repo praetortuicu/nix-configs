@@ -2,7 +2,7 @@
 
 {
   imports = [
-    nixvim.homeManagerModules.nixvim
+    nixvim.homeModules.nixvim
     ./default.nix
     ./options.nix
     #./keymaps.nix

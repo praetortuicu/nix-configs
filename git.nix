@@ -3,9 +3,9 @@
 {
   programs.git = {
     enable = true;
-    user.name = "praetortuicu";
-    user.email = "teodor.ticu@outlook.com";
     settings = {
+	  user.name = "praetortuicu";
+	  user.email = "teodor.ticu@outlook.com";
       core.editor = "vim";
       column.ui = "auto";
       branch.sort = "-committerdate";

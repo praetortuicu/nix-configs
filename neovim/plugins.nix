@@ -78,7 +78,7 @@
 						r_language_server	= {
 							enable	=	true;
 							package	=	null;
-							cmd	=	[	"R"	"--no-echo"	"-e"	"languageserver::run()"	];
+							cmd	=	[	"R"	"--no-echo"	"-e"	"languageserver::run()"];
 						};
 						rust_analyzer	=	{
 							enable	=	true;
@@ -188,9 +188,8 @@
 				pythonPath = "${pkgs.python3}/bin/python3";
 			  },
 			}
-			local lspconfig = require'lspconfig'
 
-			lspconfig.rust_analyzer.setup{
+			vim.lsp.config('rust_analyzer', {
 				on_attach = function(client, bufnr)
 					local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 					local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
@@ -207,7 +206,7 @@
 						checkOnSave = true;
 					},
 				},
-			}
+			})
 
 			local cmp = require("cmp")
 			-- Global mapping for all filetypes

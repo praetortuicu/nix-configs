@@ -19,6 +19,8 @@
     qgis
 	kdePackages.kdenlive
 	libreoffice
+	#ghex
+	gimp
 
     ### Utilities ###
     brightnessctl
@@ -29,7 +31,7 @@
     ksnip
     feh
     keepassxc
-    mullvad-vpn
+    #mullvad-vpn
     btop
    # font-awesome
     #jetbrains-mono

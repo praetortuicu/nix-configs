@@ -17,6 +17,6 @@
         renames = true;
       };
     };
-	signing.format = null;
+	signing.format = "openpgp";
   };
 }

@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{ ... }:
 
 {
   programs.git = {
@@ -17,5 +17,6 @@
         renames = true;
       };
     };
+	signing.format = null;
   };
 }

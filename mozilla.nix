@@ -71,13 +71,12 @@ in
           # (extension "libredirect" "7esoorv3@alefvanoon.anonaddy.me")
           (extension "clearurls"  "{74145f27-f039-47ce-a470-a662b129930a}")
           (extension  "keepasxc-browser"  "{76798791-c126-4156-9ae8-c30cc139a51a}")
-		  (extension "teleparty"	"{firefox@teleparty.com}")
+		  #(extension "netflix-party-is-now-teleparty"	"firefox@teleparty.com")
         ];
     };
 
-
-
     profiles."${firefoxProfileName}" = {
+	  isDefault = true;
       containers  = {
         teodor  = {
           color = "green";

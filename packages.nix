@@ -9,7 +9,7 @@
 
     ### Applications ###
     discord
-    obsidian
+    #obsidian
     #steam
     signal-desktop
     tor-browser

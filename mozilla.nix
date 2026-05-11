@@ -8,6 +8,7 @@ in
 {
   programs.firefox = {
     enable = true;
+	configPath = ".mozilla/firefox";
 
     policies = {
       DisableFirefoxStudies = true;

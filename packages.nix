@@ -42,6 +42,7 @@
 	yubikey-personalization
 	#vlc
 	mpv
+	#tailscale
 
     ### Misc / CLI tools ###
     pango
@@ -55,38 +56,4 @@
   # File manager
   programs.ranger.enable = true;
 
-  # Zsh configuration
-  programs.zsh = {
-    enable						=	true;
-	enableCompletion			=	true;
-    autosuggestion.enable		=	true;
-    autosuggestion.highlight	=	"fg=#2471b7";
-    syntaxHighlighting.enable	=	true;
-    defaultKeymap				=	"viins";
-
-    shellAliases = {
-      ll  = "ls -a";
-      lll = "ls -l";
-      cdD = "cd ~/Downloads";
-    };
-
-	initContent = ''
-	autoload -Uz vcs_info
-	setopt prompt_subst
-
-	zstyle ':vcs_info:*' check-for-changes true
-	zstyle ':vcs_info:*' unstagedstr ' *'
-	zstyle ':vcs_info:*' stagedstr ' +'
-	zstyle ':vcs_info:git:*' formats '(%b)'
-
-	precmd() {
-		vcs_info
-		if [[ -n "$vcs_info_msg_0_" ]]; then
-			RPROMPT="$vcs_info_msg_0_"
-		else
-			RPROMPT=""
-		fi
-	}
-	'';
-	};
 }

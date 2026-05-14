@@ -21,6 +21,7 @@
 	libreoffice
 	#ghex
 	gimp
+	kicad
 
     ### Utilities ###
     brightnessctl

@@ -32,5 +32,7 @@
 		autoload	-Uz	edit-command-line
 		zle	-N	edit-command-line
 		bindkey	-M	vicmd	"^e"	edit-command-line
+		bindkey -M viins "^W" backward-kill-word
+		bindkey -M viins "^U" backward-kill-line
 	'';
 }

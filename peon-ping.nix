@@ -1,4 +1,13 @@
 { pkgs, peon-ping, ... }:
+let
+  ogPacks = pkgs.fetchFromGitHub {
+    owner = "PeonPing";
+    repo = "og-packs";
+    rev = "main";
+    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+  };
+in
+
 {
   programs.peon-ping = {
     enable = true;
@@ -19,26 +28,17 @@
       };
     };
     installPacks = [
-      "peon"
-      "sc_kerrigan"
-      {
-        name = "gilfoyle";
-        src = pkgs.fetchFromGitHub {
-          owner = "OWNER";
-          repo = "openpeon-gilfoyle";
-          rev = "main";
-          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        };
-      }
-      {
-        name = "protoss";
-        src = pkgs.fetchFromGitHub {
-          owner = "OWNER";
-          repo = "openpeon-protoss";
-          rev = "main";
-          sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
-        };
-      }
+		{ name = "peon";        src = "${ogPacks}/peon"; }
+		{ name = "peon";        src = "${ogPacks}/sc_kerrigan"; }
+	{
+		name = "protoss";
+		src = pkgs.fetchFromGitHub {
+		owner = "codyborn";
+		repo = "protoss-sounds";
+		rev = "main";
+		sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+		};
+	}
     ];
     enableZshIntegration = true;
   };

@@ -8,6 +8,7 @@
     ./i3.nix
     ./git.nix
     ./mozilla.nix
+	./peon-ping.nix
     ./unfree_packages.nix
 	./zsh/default.nix
   ];

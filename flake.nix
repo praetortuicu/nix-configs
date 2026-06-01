@@ -10,9 +10,10 @@
 		url	=	"github:nix-community/nixvim/";
 		inputs.nixpkgs.follows	=	"nixpkgs";
 	};
+	peon-ping.url	=	"github:PeonPing/peon-ping";
   };
 
-  outputs = { self, nixpkgs, home-manager, claude-code, nixvim,	... }:
+  outputs = { self, nixpkgs, home-manager, claude-code, nixvim,	peon-ping,	... }:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -22,8 +23,11 @@
   in {
     homeConfigurations."tuicuimens" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ./home.nix ];
-	  extraSpecialArgs	=	{	inherit	nixvim;	};
+      modules = [ 
+		peon-ping.homeManagerModules.default
+		./home.nix 
+	];
+	  extraSpecialArgs	=	{	inherit	nixvim	peon-ping;	};
     };
   };
 }

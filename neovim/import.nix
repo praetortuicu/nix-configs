@@ -5,7 +5,7 @@
     nixvim.homeModules.nixvim
     ./default.nix
     ./options.nix
-    #./keymaps.nix
+    ./keymaps.nix
 	./plugins.nix
   ];
 }

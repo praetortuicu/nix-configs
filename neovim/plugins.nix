@@ -108,12 +108,12 @@
 							fetchingTimeout	=	200;
 							maxViewEntries	=	30;
 						};
-					####mapping = {
-					####	"<C-n>"		=	"cmp.mapping.select_next_item()";
-					####	"<C-p>"		=	"cmp.mapping.select_prev_item()";
-					####	"<CR>"		=	"cmp.mapping.confirm({ select = true })";
-					####	"<C-Space>"	=	"cmp.mapping.complete()";
-					#	};
+						mapping = {
+							"<C-n>"		=	"cmp.mapping.select_next_item()";
+							"<C-p>"		=	"cmp.mapping.select_prev_item()";
+							"<CR>"		=	"cmp.mapping.confirm({ select = true })";
+							"<C-Space>"	=	"cmp.mapping.complete()";
+						};
 						sources = [
 							{ name = "nvim_lsp"; }
 							{ name = "buffer"; }
@@ -148,7 +148,7 @@
 			-- C/C++/Rust
 			dap.adapters.lldb = {
 			  type = "executable",
-			  command = "${pkgs.llvmPackages_latest.lldb}/bin/lldb-vscode",
+			  command = "${pkgs.llvmPackages_latest.lldb}/bin/lldb-dap",
 			  name = "lldb"
 			}
 
@@ -192,10 +192,8 @@
 			vim.lsp.config('rust_analyzer', {
 				on_attach = function(client, bufnr)
 					local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-					local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-					
-					-- Enable completion triggered by <C-Space>
-					buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+					vim.api.nvim_set_option_value('omnifunc', 'v:lua.vim.lsp.omnifunc', { buf = bufnr })
 
 					-- Key bindings
 					buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', { noremap=true, silent=true })
@@ -209,15 +207,6 @@
 			})
 
 			local cmp = require("cmp")
-			-- Global mapping for all filetypes
-			cmp.setup({
-			  mapping = {
-				["<C-n>"] = cmp.mapping.select_next_item(),
-				["<C-p>"] = cmp.mapping.select_prev_item(),
-				["<CR>"]  = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete(),
-			}
-			})
 
 			-- Rust-specific sources (ensures rust_analyzer works)
 			cmp.setup.filetype('rust', {

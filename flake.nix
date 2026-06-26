@@ -10,7 +10,10 @@
 		url	=	"github:nix-community/nixvim/";
 		inputs.nixpkgs.follows	=	"nixpkgs";
 	};
-	peon-ping.url	=	"github:PeonPing/peon-ping";
+	peon-ping	=	{
+		url	=	"github:PeonPing/peon-ping";
+		inputs.nixpkgs.follows	=	"nixpkgs";
+	};
   };
 
   outputs = { self, nixpkgs, home-manager, claude-code, nixvim,	peon-ping,	... }:

@@ -6,37 +6,37 @@
     {
       mode = "n";
       key = "]d";
-      action.__raw = "vim.diagnostic.goto_next";
+      action.__raw = "function() vim.diagnostic.jump({ count = 1 }) end";
       options = { silent = true; desc = "Next diagnostic"; };
     }
     {
       mode = "n";
       key = "[d";
-      action.__raw = "vim.diagnostic.goto_prev";
+      action.__raw = "function() vim.diagnostic.jump({ count = -1 }) end";
       options = { silent = true; desc = "Prev diagnostic"; };
     }
     {
       mode = "n";
       key = "]e";
-      action.__raw = "function() vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR }) end";
+      action.__raw = "function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end";
       options = { silent = true; desc = "Next error"; };
     }
     {
       mode = "n";
       key = "[e";
-      action.__raw = "function() vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR }) end";
+      action.__raw = "function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end";
       options = { silent = true; desc = "Prev error"; };
     }
     {
       mode = "n";
       key = "<leader>e";
-      action.__raw = "vim.diagnostic.open_float";
+      action.__raw = "function() vim.diagnostic.open_float() end";
       options = { silent = true; desc = "Show diagnostic float"; };
     }
     {
       mode = "n";
       key = "<leader>q";
-      action.__raw = "vim.diagnostic.setloclist";
+      action.__raw = "function() vim.diagnostic.setloclist() end";
       options = { silent = true; desc = "Diagnostic list"; };
     }
 

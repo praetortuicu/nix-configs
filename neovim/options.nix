@@ -94,7 +94,7 @@
       };
     };
     globals = {
-      mapLeader       = " ";
+      mapleader       = " ";
       maplocalleader  = " ";
     };
     opts  = {

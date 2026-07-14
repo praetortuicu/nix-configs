@@ -41,12 +41,12 @@
     }
 
     # LuaSnip snippet navigation
-    {
-      mode = [ "i" ];
-      key = "<C-j>";
-      action = "<cmd>lua require('luasnip').jump(1)<Cr>";
-      options.silent = true;
-    }
+    #{
+    #  mode = [ "i" ];
+    #  key = "<C-j>";
+    #  action = "<cmd>lua require('luasnip').jump(1)<Cr>";
+    #  options.silent = true;
+    #}
     {
       mode = [ "i" ];
       key = "<C-k>";

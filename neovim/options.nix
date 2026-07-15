@@ -108,7 +108,7 @@
       expandtab		=	false;
 	  tabstop		=	4;
       softtabstop	=	4;
-	  tw			=	90;
+	  tw			=	85;
 
       breakindent	=	true;
       undofile		=	true;

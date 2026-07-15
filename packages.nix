@@ -16,7 +16,7 @@
     anki
     xournalpp
     pandoc
-    qgis
+    #qgis
 	kdePackages.kdenlive
 	libreoffice
 	#ghex

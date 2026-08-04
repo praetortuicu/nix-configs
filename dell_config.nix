@@ -111,23 +111,21 @@
   security.pam.services = {
   login.u2fAuth = true;
   sudo.u2fAuth = true;
-  # This targets your specific display manager (LightDM)
   lightdm.u2fAuth = true; 
   };
   
   security.pam.u2f.settings = {
-    cue = true;           # Tells you "Please touch the device"
-    interactive = true;   # Required for the prompt to wait for you
+    cue = true;           # Tells "Please touch the device"
+    interactive = true;   # Required for the prompt to wait
   };
 
   security.rtkit.enable = true;
   services.pipewire = {
-    enable = true; # if not already enabled
+    enable = true;
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.printing.enable = false;

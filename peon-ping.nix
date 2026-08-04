@@ -2,7 +2,7 @@
 {
   programs.peon-ping = {
     enable = true;
-    package = peon-ping.packages.${pkgs.system}.default;
+    package = peon-ping.packages.${pkgs.stdenv.hostPlatform.system}.default;
     claudeCodeIntegration = true;
     settings = {
       default_pack = "protoss";

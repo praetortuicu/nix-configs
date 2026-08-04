@@ -13,11 +13,11 @@
     #steam
     signal-desktop
     tor-browser
-    anki
-    xournalpp
+    #anki
+    #xournalpp
     pandoc
     #qgis
-	kdePackages.kdenlive
+	#kdePackages.kdenlive
 	libreoffice
 	#ghex
 	gimp
@@ -34,7 +34,7 @@
     keepassxc
     #mullvad-vpn
     btop
-   # font-awesome
+    #font-awesome
     #jetbrains-mono
 	nerd-fonts.jetbrains-mono
 	nerd-fonts.symbols-only
@@ -47,7 +47,7 @@
 
     ### Misc / CLI tools ###
     pango
-    marp-cli
+    #marp-cli
     gtk2
     libGL
 	gnumake

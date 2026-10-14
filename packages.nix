@@ -13,7 +13,7 @@
     #steam
     signal-desktop
     tor-browser
-    #anki
+    anki
     #xournalpp
     pandoc
     #qgis
